@@ -1,0 +1,297 @@
+/* --- Importar Fuentes --- */
+@font-face {
+    font-family: OracleSans_Rg;
+    src: url(../Fonts/OracleSans_Rg.woff);
+}
+
+/* --- Definir Variables --- */
+:root {
+
+    /* Colores */
+     --ColorFondos: #DDD8C1;
+     --ColorRojo: #C84934;
+     /* Tipografías */
+     --FuenteTipografia: 'OracleSans_Rg', sans-serif;
+}
+
+/* --- Configuración General --- */
+* {
+    margin:0;
+    padding:0;
+    font-family: var(--FuenteTipografia);
+    box-sizing: border-box;
+    transition: background-color 0.5s, color 0.05s, filter 0.5s, border 0.5s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+body{
+    background-color: var(--ColorFondos);
+    overflow-x: hidden;
+}
+
+/* --- Logos Esquinas --- */
+
+.LogotipoEsquinaSuperior{
+    position: absolute;
+    top: 0;
+    left:5%;
+}
+
+.LogotipoEsquinaSuperior img{
+    width:clamp(80px, 10vw, 180px);
+}
+
+.LogotipoEsquinaInferior{
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-100%);
+    right:5%;
+}
+
+.LogotipoEsquinaInferior img{
+  /*   width:clamp(20px, 4vw, 50px); */
+    width:40px;
+    
+}
+
+/* --- Contenedor General --- */
+.ContenedorGeneral{
+    display:flex;
+    height: 100svh;
+}
+
+.ContenedorInterno{
+    width:100%;
+    margin: clamp(25px, 3vw, 60px);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Fondo01{
+    background-image: url("../Images/Fondo01.jpg");
+}
+
+.Fondo02{
+    background-image: url("../Images/Fondo02.jpg");
+}
+
+/* --- Contenidos Contenedor --- */
+
+/* --- Paso 01 -- */
+
+.ImagenGratitudInfinita{
+    width: 30%;
+    max-width:250px;
+    margin: clamp(15px, 5vw, 50px);
+}
+
+.ContenedorVelaInicial{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.VelaInicial{
+    max-width: 70svw;
+    max-height: 50svh;
+}
+.MensajeInicial{
+    max-width: 250px;
+}
+.BotonEncender{
+	width: -webkit-fill-available;
+	max-width: 180px;
+	--movex: 0%;
+	--movey: 0%;
+  animation: pulse 2s infinite;
+  z-index: 10;
+}
+
+/* --- Paso 02 --- */
+
+.ContenedorMensaje{
+    background-image: url("../Images/Carta.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    text-align: center;
+    z-index: 50;
+}
+
+@media (orientation: landscape) {
+    .ContenedorMensaje {
+        width: 51svh;
+        height: 72svh;
+    }
+  }
+  
+  @media (orientation: portrait) {
+    .ContenedorMensaje {
+        width: 66svw;
+        height: 92svw;
+    }
+  }
+
+  @media  (max-width: 600px) and (min-height: 800px) {
+    .ContenedorMensaje {
+        width: 86svw;
+        height: 121svw;
+    }
+  }
+  
+  .FormaMensaje{
+    margin:12%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    top: 28%;
+    font-size: 2px;
+  }
+
+  .FormaMensaje textarea, .FormaMensaje input{
+    width:100% !important;
+  } 
+
+  .FormaMensaje textarea, .FormaMensaje input[type=text]{
+    background-color: transparent;
+    border: 0 solid transparent;
+    margin-bottom:10px;
+    outline: none;
+    font-size: 13px;
+    line-height: 1.2em;
+    resize: none;
+  }
+
+  .FormaMensaje button[type=submit]{
+    background-color: var(--ColorRojo);
+    color: white;
+    border: 0 solid transparent;
+    border-radius: 5px;
+    padding:8px;
+	 cursor: pointer;
+    width:100%;
+	}
+	
+	.FormaMensaje button.disabled{
+		filter: grayscale(0.8);
+		cursor: default;
+ 	}
+
+.Velas{
+    max-width: 74svw;
+    max-height: 56svh;
+    z-index: 3;
+}
+
+.VelasFondo{
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    max-width: 74svw;
+    max-height: 56svh;
+    z-index: 3;
+}
+
+.LuzFondo{
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    top:36%;
+    left:50%;
+    z-index: 2;
+    width:60svw;
+    max-height:80svh;
+	 --movex: -50%;
+	 --movey: -50%;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: translate(var(--movex), var(--movey)) scale(0.9);
+	}
+
+	50% {
+		transform: translate(var(--movex), var(--movey)) scale(1);
+	}
+
+	100% {
+		transform: translate(var(--movex), var(--movey)) scale(0.9);
+	}
+}
+
+/* Estilo Mensaje Remitente */
+
+.AnimacionEntradaMensaje{
+    animation: entradaMensaje 2s 1;
+}
+
+@keyframes entradaMensaje {
+	0% {
+		transform: translate(100vw, -50%) scale(0.4);
+	}
+
+	100% {
+		transform: translate(-50%, -50%);
+	}
+}
+
+.AnimacionSalidaMensaje{
+    animation: salidaMensaje 2s 1;
+    transition-timing-function: ease-in;
+	 animation-fill-mode: forwards;
+}
+
+@keyframes salidaMensaje {
+	0% {
+		transform: translate(-50%, -50%);
+	}
+
+	100% {
+        transform: translate(-100vw, -50%) scale(0.4);
+	}
+}
+
+.ContenidoRemitente{
+    margin:12%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    top: 28%;
+    line-height: 1.1em;
+    font-size:14px;
+    z-index:50;
+}
+
+.ContenidoRemitente div{
+    margin-bottom:10px;
+}
+.NombreRemitente{
+    font-weight: 800;
+    font-size:18px;
+}
+
+.clickeable{
+	cursor: pointer;
+}
+
+.ContenedorMensajes{
+    overflow: hidden;
+}

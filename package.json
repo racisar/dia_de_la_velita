@@ -1,0 +1,15 @@
+{
+	"name": "navidadvelitas",
+	"module": "js/main.js",
+	"type": "module",
+	"scripts": {
+		"dev": "bun --watch js/main.js",
+		"build": "esbuild --bundle ./src/environment/prod.js --platform=node --format=esm --outfile=dist/_worker.js --minify",
+		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"start": "npm run build && bun dist/_worker.js"
+	},
+	"devDependencies": {
+		"eslint": "^8.54.0",
+		"standard": "^17.1.0"
+	}
+}
